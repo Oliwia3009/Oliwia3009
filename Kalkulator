@@ -1,0 +1,139 @@
+import math
+
+# Kalkulator sześcianu
+def szescian():
+    bok = float(input("Podaj bok sześcianu (w cm): "))
+    pole = 6 * bok ** 2
+    objetosc = bok ** 3
+    obwod = 12 * bok
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}, Obwód (w cm): {obwod}"
+
+# Kalkulator prostopadłościanu
+def prostopadloscian():
+    a = float(input("Podaj długość boku a (w cm): "))
+    b = float(input("Podaj długość boku b (w cm): "))
+    c = float(input("Podaj długość boku c (w cm): "))
+    pole = 2 * (a * b + a * c + b * c)
+    objetosc = a * b * c
+    obwod = 4 * (a + b + c)
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}, Obwód (w cm): {obwod}"
+
+# Kalkulator graniastosłupa o podstawie prostokątnej
+def graniastoslup():
+    a = float(input("Podaj długość boku a podstawy (w cm): "))
+    b = float(input("Podaj długość boku b podstawy (w cm): "))
+    h = float(input("Podaj wysokość graniastosłupa (w cm): "))
+    pole_podstawy = a * b
+    pole = 2 * pole_podstawy + 2 * (a + b) * h
+    objetosc = pole_podstawy * h
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}"
+
+# Kalkulator walca
+def walec():
+    promien = float(input("Podaj promień podstawy walca (w cm): "))
+    wysokosc = float(input("Podaj wysokość walca (w cm): "))
+    pole_podstawy = math.pi * promien ** 2
+    pole = 2 * pole_podstawy + 2 * math.pi * promien * wysokosc
+    objetosc = pole_podstawy * wysokosc
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}"
+
+# Kalkulator stożka
+def stozek():
+    promien = float(input("Podaj promień podstawy stożka (w cm): "))
+    wysokosc = float(input("Podaj wysokość stożka (w cm): "))
+    pole_podstawy = math.pi * promien ** 2
+    l = math.sqrt(promien ** 2 + wysokosc ** 2)  # Tworząca stożka
+    pole = pole_podstawy + math.pi * promien * l
+    objetosc = (1/3) * pole_podstawy * wysokosc
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}"
+
+# Kalkulator kuli
+def kula():
+    promien = float(input("Podaj promień kuli (w cm): "))
+    pole = 4 * math.pi * promien ** 2
+    objetosc = (4/3) * math.pi * promien ** 3
+    return f"Pole (w cm): {pole}, Objętość (w cm): {objetosc}"
+
+# Kalkulator koła
+def kolo():
+    promien = float(input("Podaj promień koła (w cm): "))
+    pole = math.pi * promien ** 2
+    obwod = 2 * math.pi * promien
+    return f"Pole (w cm): {pole}, Obwód (w cm): {obwod}"
+
+# Kalkulator rąbu (przy podanych przekątnych)
+def romb():
+    przekatna1 = float(input("Podaj długość pierwszej przekątnej rąbu (w cm): "))
+    przekatna2 = float(input("Podaj długość drugiej przekątnej rąbu (w cm): "))
+    pole = (przekatna1 * przekatna2) / 2
+    bok = math.sqrt((przekatna1 / 2) ** 2 + (przekatna2 / 2) ** 2)
+    obwod = 4 * bok
+    return f"Pole (w cm): {pole}, Obwód (w cm): {obwod}"
+
+# Wysokość trójkąta równoramiennego
+def wysokosc_trojkata():
+    bok = float(input("Podaj długość ramienia trójkąta (w cm): "))
+    podstawa = float(input("Podaj długość podstawy trójkąta (w cm): "))
+    wysokosc = math.sqrt(bok ** 2 - (podstawa / 2) ** 2)
+    return f"Wysokość (w cm): {wysokosc}"
+
+# Przekątna kwadratu
+def przekatna_kwadratu():
+    bok = float(input("Podaj długość boku kwadratu (w cm): "))
+    przekatna = bok * math.sqrt(2)
+    return f"Przekątna (w cm): {przekatna}"
+
+# Twierdzenie Pitagorasa
+def pitagoras():
+    a = float(input("Podaj długość przyprostokątnej a (w cm): "))
+    b = float(input("Podaj długość przyprostokątnej b (w cm): "))
+    c = math.sqrt(a ** 2 + b ** 2)
+    return f"Długość przeciwprostokątnej (w cm): {c}"
+
+
+def menu():
+    while True:
+        print("\n -+-Kalkulatror-+-")
+        print("1. Sześcian")
+        print("2. Prostopadłościan")
+        print("3. Graniastosłup")
+        print("4. Walec")
+        print("5. Stożek")
+        print("6. Kula")
+        print("7. Koło")
+        print("8. Romb")
+        print("9. Wysokość trójkąta równoramiennego")
+        print("10. Przekątna kwadratu")
+        print("11. Twierdzenie Pitagorasa")
+        print("0. Zakończ")
+
+        choice = input("Wybierz opcję (0-11): ")
+
+        if choice == '1':
+            print(szescian())
+        elif choice == '2':
+            print(prostopadloscian())
+        elif choice == '3':
+            print(graniastoslup())
+        elif choice == '4':
+            print(walec())
+        elif choice == '5':
+            print(stozek())
+        elif choice == '6':
+            print(kula())
+        elif choice == '7':
+            print(kolo())
+        elif choice == '8':
+            print(romb())
+        elif choice == '9':
+            print(wysokosc_trojkata())
+        elif choice == '10':
+            print(przekatna_kwadratu())
+        elif choice == '11':
+            print(pitagoras())
+        elif choice == '0':
+            break
+        else:
+            print("Nieprawidłowy wybór, spróbuj ponownie.")
+
+menu()
